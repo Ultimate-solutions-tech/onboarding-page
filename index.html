@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfriPlant Identifier</title>
+
+    <style>
+
+        /* onboarding */
+/* Onboarding Screen */
+.indicator {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    gap: 10px;
+}
+
+.indicator-dot {
+    width: 10px;
+    height: 10px;
+    background: #ddd;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.indicator-dot.active {
+    background: #347929;
+}
+
+.onboarding {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(images/okro.png) no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .onboarding-step {
+    display: none;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .onboarding-step img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+  }
+  
+  .onboarding-step.active {
+    display: block;
+  }
+  
+  .onboarding-step .content {
+    margin-top: 20px;
+    padding: 10px;
+  }
+  
+  .onboarding-step h1 {
+    margin: 15px 0;
+    font-size: 20px;
+  }
+  
+  .onboarding-step p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 70px;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+
+  #preloader {
+    background: #fff url(images/preloader.png) no-repeat center center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+
+    </style>
+</head>
+<body>
+    <div id="preloader">
+    </div>  
+
+
+    <!-- onboarding -->
+    <div id="onboarding-container" class="onboarding">
+        <!-- Navigation Indicator -->
+    
+        <!-- Onboarding Steps -->
+        <div class="onboarding-step active" data-step="1" style="padding-top: 150px;">
+            <img src="images/Scan-camera.png" alt="Welcome Screen">
+            <div class="content">
+                <p>Welcome to</p>
+                <h1 style="color: #347929;">AfriPlant Identifier</h1>
+                <p>Your companion for identifying plants, diagnosing diseases, and providing care tips.</p>
+                <button class="next-btn">Get Started</button>
+            </div>
+
+            <div id="onboarding-indicator" class="indicator">
+                <span class="indicator-dot active"></span>
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot"></span>
+            </div>
+        </div>
+    
+        <!-- Step 2 -->
+        <div class="onboarding-step" data-step="2"
+             style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/corn.png) no-repeat; background-size: cover; padding-top: 105px;">
+            <img src="images/finger-print-scan-1.png" style="width: 150px; height: 150px;" alt="Identify Plants Instantly">
+            <div class="content">
+                <h1>Identify Any Plant Instantly</h1>
+                <p>Simply scan a plant with your camera, and get instant identification and care tips.</p>
+                <button class="next-btn">Next</button>
+            </div>
+
+            <div id="onboarding-indicator" class="indicator">
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot active"></span>
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot"></span>
+            </div>
+        </div>
+    
+        <!-- Step 3 -->
+        <div class="onboarding-step" data-step="3"
+             style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/leaf.png) no-repeat; background-size: cover; padding-top: 105px;">
+            <img src="images/finger-print-scan-1.png" style="width: 150px; height: 150px;" alt="Care Tips">
+            <div class="content">
+                <h1>Care for Your Plants</h1>
+                <p>Get personalized plant care tips to help your plants thrive and stay healthy.</p>
+                <button class="next-btn">Next</button>
+            </div>
+
+            <div id="onboarding-indicator" class="indicator">
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot active"></span>
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot"></span>
+            </div>
+        </div>
+    
+        <!-- Step 4 -->
+        <div class="onboarding-step" data-step="4"
+             style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/tomato.png) no-repeat; background-size: cover; padding-top: 105px;">
+            <img src="images/user-settings.png" style="width: 150px; height: 150px;" alt="Diagnose Diseases">
+            <div class="content">
+                <h1>Diagnose Plant Diseases</h1>
+                <p>Identify and address plant diseases with AI-powered diagnosis tools.</p>
+                <button class="next-btn">Next</button>
+            </div>
+
+            <div id="onboarding-indicator" class="indicator">
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot active"></span>
+                <span class="indicator-dot"></span>
+            </div>
+        </div>
+    
+        <!-- Step 5 -->
+        <div class="onboarding-step" data-step="5"
+             style="background: rgb(52,121,44);
+                background: linear-gradient(90deg, rgba(52,121,44,1) 24%, rgba(153,99,32,1) 60%, rgba(119,121,54,1) 100%, rgba(110,115,51,1) 100%); padding-top: 50px;">
+            <h1>Snap Tips</h1>
+            <img src="images/good.png" style="width: auto; height: auto;" alt="Discover Africa's Flora">
+            <div class="icon" style="display: flex; flex-direction: row; justify-content: center; gap: 10px;">
+                <img src="images/too-close-1.png" style="width: 100px; height: fit-content;" alt="Discover Africa's Flora">
+                <img src="images/too-far.png" style="width: 100px; height: fit-content;" alt="Discover Africa's Flora">
+                <img src="images/multi.png" style="width: 100px; height: fit-content;" alt="Discover Africa's Flora">
+            </div>
+            <div class="content">
+                <button class="finish-btn" style="margin-top: 20px;">Start Identifying your Plant</button>
+            </div>
+
+            <div id="onboarding-indicator" class="indicator">
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot"></span>
+                <span class="indicator-dot active"></span>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script>
+
+         // onboarding
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const steps = document.querySelectorAll(".onboarding-step");
+        const nextButtons = document.querySelectorAll(".next-btn");
+        const finishButton = document.querySelector(".finish-btn");
+
+        let currentStep = 0;
+
+        // Function to update the active step
+        const updateActiveStep = () => {
+            steps.forEach((step, index) => {
+                step.classList.toggle("active", index === currentStep);
+
+                const indicators = step.querySelectorAll(".indicator-dot");
+                indicators.forEach((dot, dotIndex) => {
+                    dot.classList.toggle("active", dotIndex === currentStep);
+                });
+            });
+        };
+
+        // Event listener for "Next" buttons
+        nextButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                if (currentStep < steps.length - 1) {
+                    currentStep++;
+                    updateActiveStep();
+                }
+            });
+        });
+
+        // Event listener for "Finish" button
+        // Event listener for "Finish" button
+        if (finishButton) {
+            finishButton.addEventListener("click", () => {
+        // Redirect to the main page
+        window.location.href = "https://afriplantt-identifier.vercel.app/"; // Update this to your actual main page path
+    });
+}
+
+// Initialize the active step
+updateActiveStep();
+
+
+        // Initialize the active step
+        updateActiveStep();
+    });
+
+    let loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function(){
+            loader.style.display = "none";
+
+            // Add a delay before hiding the loader (e.g., 2 seconds)
+    setTimeout(function() {
+        loader.style.display = "none";
+    }, 10000); // 5000 milliseconds = 5 seconds
+        });
+    </script>
+</body>
+</html>
